@@ -126,9 +126,81 @@ function task7() {
     let userNum = 3245634
     let userShift = 2
     for(let i = userShift; i > 0; i--) {
-    console.log(1)
+    console.log('ХЗ')
     // ХЗ
     }
     
 }
+
+
+
+function task8() {
+/*Зациклить вывод дней недели таким образом: «День недели.
+Хотите увидеть следующий день?» и так до тех пор, пока
+пользователь нажимает OK. */
+
+let dayWeek = 'Понедельник'  // по умочанию 
+while(confirm(`День недели,\n${dayWeek}\nХотите увидеть следующий день?`))  {    
+    switch(true) {
+        case dayWeek == 'Понедельник' : dayWeek = 'Вторник'; break
+        case dayWeek == 'Вторник'     : dayWeek = 'Среда'  ; break
+        case dayWeek == 'Среда'       : dayWeek = 'Четверг'; break
+        case dayWeek == 'Четверг'     : dayWeek = 'Пятница'; break
+        case dayWeek == 'Пятница'     : dayWeek = 'Суббота'; break
+        case dayWeek == 'Суббота'     : dayWeek = 'Воскресенье'; break
+        case dayWeek == 'Воскресенье' : dayWeek = 'Понедельник'; break
+    }
+}
+}
+
+
+function task9() {
+/*Вывести таблицу умножения для всех чисел от 2 до 9.
+Каждое число необходимо умножить на числа от 1 до 10.*/
+    for(let count = 2; count <= 9; count++) {
+        console.log(`умножение ${count}`)
+        for(let internalCounter = 1; internalCounter <= 10; internalCounter++) {
+            let nam  = count * internalCounter
+            console.log(`${count} * ${internalCounter} = ${nam}`)
+        }
+    }
+}
+
+
+/* Игра «Угадай число». Предложить пользователю загадать
+число от 0 до 100 и отгадать его следующим способом:
+каждую итерацию цикла делите диапазон чисел пополам,
+записываете результат в N и спрашиваете у пользователя
+«Ваше число > N, < N или == N?». В зависимости от того
+что указал пользователь, уменьшаете диапазон. Начальный
+диапазон от 0 до 100, поделили пополам и получили 50.
+Если пользователь указал, что его число > 50, то изменили
+диапазон на от 51 до 100. И так до тех пор, пока пользователь не выберет == N.*/
+
+// alert('Загадай число')
+let maxNum = 100    
+let minNum = 0
+let halfNumber = maxNum
+let questionNum
+do {
+    questionNum = ((maxNum - minNum) / 2 ) + minNum
+    // console.log(halfNumber)
+    console.log(questionNum)
+    let question = confirm (`Число больше или равно ${questionNum}`)
+    halfNumber = (maxNum - minNum) / 2
+    if(question) {
+        minNum = questionNum
+    } else  {
+        maxNum = questionNum - 1
+    }
+    // console.log(halfNumber)
+    // console.log(maxNum)
+    // console.log(minNum)
+} while (halfNumber > 0)   // условие временное необходимо для избежания зацикливания 
+
+
+
+
+
+
 
